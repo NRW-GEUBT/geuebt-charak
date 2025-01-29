@@ -7,8 +7,6 @@ bakcharak_repo="https://gitlab.com/bfr_bioinformatics/bakcharak.git"
 # Commit hash to use
 commit="48ed26054bde528ea4f2f8a104c3dfb95154fa1e"
 
-VERSION=$(cat "../../VERSION")
-
 # Local directory to save the Repo
 local_dir="${CONDA_PREFIX}/bakCharak/"
 
