@@ -28,7 +28,6 @@ checkpoint bakcharak:
         # summaries="bakcharak/results/summary/summary_all.tsv",
     params:
         samples=config["sample_sheet"],
-        bakcharak=os.path.expanduser(f"~/.nrw-geuebt/geuebt-charak-{version}/bakCharak/bakcharak.py"),
         species=lambda w, input: get_setting_value(input.settings, "bakcharak_species"),
         max_threads_per_job=config["max_threads_per_job"],
     message:
@@ -42,7 +41,7 @@ checkpoint bakcharak:
         """
         exec 2> {log}
         
-        python {params.bakcharak} \
+        python $CONDA_PREFIX/bakCharak/bakcharak.py \
             --sample_list {params.samples} \
             --working_directory {output.outdir} \
             --species {params.species} \

@@ -1,3 +1,7 @@
+### 1.2.0
+
+Deploy deps under conda prefix
+
 ### 1.0.0
 
 Rework for integration with Geuebt-API and Metadata V3

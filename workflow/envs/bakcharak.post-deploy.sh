@@ -10,7 +10,7 @@ commit="48ed26054bde528ea4f2f8a104c3dfb95154fa1e"
 VERSION=$(cat "../../VERSION")
 
 # Local directory to save the Repo
-local_dir="${HOME}/.nrw-geuebt/geuebt-charak-${VERSION}/bakCharak/"
+local_dir="${CONDA_PREFIX}/bakCharak/"
 
 # if already exists, wipe it clean and redo clone
 [ -d "$local_dir" ] && rm -rf "$local_dir"
