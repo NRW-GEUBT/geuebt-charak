@@ -18,7 +18,7 @@ import requests
 from urllib.parse import urljoin
 
 
-def main(summary, sheet_out, merged, qc_out, uri):
+def main(summary, sheet_out, merged, qc_out, uri, ver):
     os.makedirs(sheet_out, exist_ok=True)
     mergedlist = []
     qc = {}
@@ -35,11 +35,18 @@ def main(summary, sheet_out, merged, qc_out, uri):
         # Update isolate info
         response = requests.put(
             urljoin(uri, f"isolates/{isolate_id}/characterization"),
-            json={"characterization": charak}
-        )
+            json={
+                "characterization": charak,
+                "sample_info": {"geuebt_charak_ver": ver}
+            }
+        )   
 
         # Failed PUT will also be outputed to not break things in core
-        dict_out = {"isolate_id": isolate_id, "characterization": charak}
+        dict_out = {
+            "isolate_id": isolate_id,
+            "characterization": charak,
+            "sample_info": {"geuebt_charak_ver": ver}
+        }
         mergedlist.append(dict_out)
 
         # Check response
@@ -71,4 +78,5 @@ if __name__ == '__main__':
         snakemake.output['merged'],
         snakemake.output['qc_out'],
         snakemake.params['API_url'],
+        snakemake.params['ver'],
     )

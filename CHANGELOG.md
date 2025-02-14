@@ -1,3 +1,7 @@
+### 1.3.0 
+
+Reprt version to API
+
 ### 1.2.0
 
 Deploy deps under conda prefix

@@ -62,6 +62,7 @@ rule stage_results:
         qc_out="staging/qc_status.json",
     params:
         API_url=config["API_url"],
+        ver=version,
     message:
         "[BakCharak] Staging results"
     conda:
