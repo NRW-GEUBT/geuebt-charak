@@ -1,3 +1,7 @@
+### 1.3.1
+
+Add API Authentication
+
 ### 1.3.0 
 
 Reprt version to API
