@@ -32,7 +32,7 @@ def login(url, username, password):
     return response.json()["access_token"]
 
 
-def authenticated_request( method, endpoint, token, **kwargs):
+def authenticated_request(method, endpoint, token, **kwargs):
     headers = kwargs.pop("headers", {})
     headers["Authorization"] = f"Bearer {token}"
     return requests.request(method, endpoint, headers=headers, **kwargs)
@@ -57,7 +57,7 @@ def main(summary, sheet_out, merged, qc_out, uri, ver):
             raise RuntimeError("Missing API_USERNAME or API_PASSWORD env vars")
         token = login(USERNAME, PASSWORD)
         response = authenticated_request(
-            "Put",
+            "PUT",
             urljoin(uri, f"isolates/{isolate_id}/characterization"),
             token,
             json={
