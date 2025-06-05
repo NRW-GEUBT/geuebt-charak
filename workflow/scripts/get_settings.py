@@ -41,7 +41,7 @@ def authenticated_request(method, endpoint, token, **kwargs):
 def main(settings, url, organism):
     if not USERNAME or not PASSWORD:
         raise RuntimeError("Missing API_USERNAME or API_PASSWORD env vars")
-    token = login(USERNAME, PASSWORD)
+    token = login(url, USERNAME, PASSWORD)
     response = authenticated_request(
         "GET",
         urljoin(url, f"settings/{organism}"),

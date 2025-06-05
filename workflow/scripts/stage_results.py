@@ -55,7 +55,7 @@ def main(summary, sheet_out, merged, qc_out, uri, ver):
         # Update isolate info
         if not USERNAME or not PASSWORD:
             raise RuntimeError("Missing API_USERNAME or API_PASSWORD env vars")
-        token = login(USERNAME, PASSWORD)
+        token = login(uri, USERNAME, PASSWORD)
         response = authenticated_request(
             "PUT",
             urljoin(uri, f"isolates/{isolate_id}/characterization"),
